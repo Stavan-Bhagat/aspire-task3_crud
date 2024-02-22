@@ -32,14 +32,6 @@
     <header>
       <div class="container-fluid fs-2 text-white text-center p-2">
         <p class="d-inline-block">CRUD Application using Local Storage</p>
-        <div class="d-inline-block float-end rounded-2">
-          <a
-            class="form__link text-white fs-5"
-            href="adminlogin.html"
-            id="register"
-            >Admin</a
-          >
-        </div>
       </div>
     </header>
 
@@ -53,7 +45,12 @@
         <form class="row g-3" style="height: 45vh" id="signIn">
           <div class="col-md-12">
             <label for="role"> Select Role</label>
-            <select class="form-select" id="role" name="role" aria-placeholder="select role">
+            <select
+              class="form-select"
+              id="role"
+              name="role"
+              aria-placeholder="select role"
+            >
               <option value="users">User</option>
               <option value="admin">Admin</option>
             </select>

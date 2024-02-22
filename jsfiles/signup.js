@@ -1,3 +1,4 @@
+let users=[]; 
 document.getElementById("myForm").addEventListener("submit", (e) => {
   e.preventDefault();
   if (validate()) {
@@ -6,20 +7,23 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
     const email = document.getElementById("email").value;
     const city = document.getElementById("city").value;
     const password = document.getElementById("password").value;
-
+    const encryptpassword=btoa(password);
     success.style.display = "block";
+    
+
     const data = {
       name: name,
       email: email,
       city: city,
-      password: password,
+      password: encryptpassword,
     };
-    console.log("success");
-    console.log(data);
+    users.push(data);
+    console.log(users);
+    
 
-    var userdata = localStorage.setItem("users", JSON.stringify(data));
+    var userdata = localStorage.setItem("users", JSON.stringify(users));
     console.log(userdata);
-  }
+  }2
 });
 
 function validate() {

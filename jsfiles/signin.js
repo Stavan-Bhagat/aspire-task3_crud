@@ -13,7 +13,9 @@ signin.addEventListener("submit", (event) => {
       userData.email === email &&
       userData.password === password
     ) {
-      alert("User logged in successfully!");
+      window.location.href = "welcome.html";
+      //  const heading =document.querySelector('.heading');
+      //   heading.innerhtml=`Hello ${userData.name}`;
     } else {
       document.getElementById("errormsg").textContent =
         "Invalid email or password";
