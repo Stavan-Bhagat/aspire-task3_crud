@@ -1,29 +1,35 @@
-
 document.getElementById("myForm").addEventListener("submit", (e) => {
   e.preventDefault();
   if (validate()) {
-    const success = document.querySelector("#successMessage");
-    const { name, email, city, password } = getFormValues();
-    // const encryptpassword = btoa(password);
-    success.style.display = "block";
+    if (isEmailExist()) {
+      console.log("inside exist");
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+      document.querySelector("#semail").textContent = `email already exist`;
+      return false;
+    } else {
+      const success = document.querySelector("#successMessage");
+      const { name, email, role, city, password } = getFormValues();
 
-    const data = {
-      name: name,
-      email: email,
-      city: city,
-      password: password
-    };
+      const encryptpassword = btoa(password);
+      success.style.display = "block";
 
-    users.push(data);
-    console.log(users);
+      let user = JSON.parse(localStorage.getItem("users")) || [];
 
+      const data = {
+        name: name,
+        email: email,
+        city: city,
+        role: role,
+        password: encryptpassword,
+      };
 
-    var userdata = localStorage.setItem("users", JSON.stringify(users));
-    console.log(userdata);
-    e.target.reset();
-  } 2
+      user.push(data);
+
+      var userdata = localStorage.setItem("users", JSON.stringify(user));
+      console.log(userdata);
+      e.target.reset();
+    }
+  }
 });
 
 // get values
@@ -31,16 +37,33 @@ function getFormValues() {
   return {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
+    role: document.getElementById("role").value,
     city: document.getElementById("city").value,
     password: document.getElementById("password").value,
     confirmPassword: document.getElementById("confirmPassword").value,
   };
 }
+// isemail exist
 
+function isEmailExist() {
+  const { email } = getFormValues();
+
+  const userdata = JSON.parse(localStorage.getItem("users"));
+
+  if (userdata === null) {
+    return false;
+  } else {
+    const emailcheck = userdata.some((element) => {
+      return element.email === email;
+    });
+    console.log(emailcheck);
+    return emailcheck;
+  }
+}
 // validation checking
 function validate() {
-
-  const { name, email, city, password, confirmPassword } = getFormValues();
+  const { name, email, role, city, password, confirmPassword } =
+    getFormValues();
   let valid = true;
   const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
