@@ -1,40 +1,47 @@
-let users=[]; 
+
 document.getElementById("myForm").addEventListener("submit", (e) => {
   e.preventDefault();
   if (validate()) {
     const success = document.querySelector("#successMessage");
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const city = document.getElementById("city").value;
-    const password = document.getElementById("password").value;
-    const encryptpassword=btoa(password);
+    const { name, email, city, password } = getFormValues();
+    // const encryptpassword = btoa(password);
     success.style.display = "block";
-    
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
     const data = {
       name: name,
       email: email,
       city: city,
-      password: encryptpassword,
+      password: password
     };
+
     users.push(data);
     console.log(users);
-    
+
 
     var userdata = localStorage.setItem("users", JSON.stringify(users));
     console.log(userdata);
-  }2
+    e.target.reset();
+  } 2
 });
 
+// get values
+function getFormValues() {
+  return {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    city: document.getElementById("city").value,
+    password: document.getElementById("password").value,
+    confirmPassword: document.getElementById("confirmPassword").value,
+  };
+}
+
+// validation checking
 function validate() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const city = document.getElementById("city").value;
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
 
+  const { name, email, city, password, confirmPassword } = getFormValues();
   let valid = true;
-
   const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
   if (name === "") {

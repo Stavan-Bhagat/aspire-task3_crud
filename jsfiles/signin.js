@@ -8,14 +8,17 @@ signin.addEventListener("submit", (event) => {
 
   if (role === "users") {
     const userData = JSON.parse(localStorage.getItem("users"));
+    // console.log(userData.password)
+    // console.log(atob(userData.password))
+    // console.log(password);
     if (
       userData &&
       userData.email === email &&
       userData.password === password
     ) {
+     
+      localStorage.setItem('currentEmail',JSON.stringify(email));
       window.location.href = "welcome.html";
-      //  const heading =document.querySelector('.heading');
-      //   heading.innerhtml=`Hello ${userData.name}`;
     } else {
       document.getElementById("errormsg").textContent =
         "Invalid email or password";
