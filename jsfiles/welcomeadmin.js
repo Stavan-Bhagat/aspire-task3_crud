@@ -19,9 +19,8 @@ if (userdata.length > 0) {
     <td>${userdata[i].city}</td>
    
     <td><button type="button" class="btn btn-warning text-light" >Edit</button></td>
-    <td><button type="button" class="btn btn-danger" onclick="deletedata('${
-      userdata[i].email
-    }')">Delete</button></td>
+    <td><button type="button" class="btn btn-danger" onclick="deletedata('${userdata[i].email
+      }')">Delete</button></td>
     </tr>`;
   }
   tbody.innerHTML = tablerows;
