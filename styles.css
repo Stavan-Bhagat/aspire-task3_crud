@@ -1,29 +1,54 @@
 /* signIn */
-body{
-    background-color: #002C54;
+body {
+  background-color: #002c54;
 }
-#error-msg{
-    font-size: 0.1rem;
-    }
-    #form{
-    padding:0% 50% ;
-    margin: 10% 0%;
-    }
-    
-    .innerDiv{
-        width: 30%;
-        height: auto;
-    }
-    #submit{
-        width: 100%;
-    }
-    #submit:hover{
-        background-color:rgb(29, 29, 232);
-    }
-    #register, #anchor-back{
-        text-decoration: none;
-    }
-    #register:hover{
-        text-decoration: underline;
-    }
-    
+#error-msg {
+  font-size: 0.1rem;
+}
+#form {
+  padding: 0% 50%;
+  margin: 10% 0%;
+}
+
+.innerDiv {
+  width: 30%;
+  height: auto;
+}
+#submit {
+  width: 100%;
+}
+#submit:hover {
+  background-color: rgb(29, 29, 232);
+}
+#register,
+#anchor-back {
+  text-decoration: none;
+}
+#register:hover {
+  text-decoration: underline;
+}
+#back{
+  
+  text-decoration: none;
+}
+#back:hover{
+  text-decoration: underline;
+}
+
+/* welcome header blog */
+
+.header {
+  background-color: #fb6542;
+}
+.dp {
+  height: auto;
+  width: 100%;
+  padding: 5%;
+}
+.header1 {
+  background-color: #375e97;
+}
+.imgs {
+  height: auto;
+  width: 95%;
+}

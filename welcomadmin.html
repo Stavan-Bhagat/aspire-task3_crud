@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>welcome page</title>
+    <title>welcome admin</title>
 
     <!-- bootstrap cdn -->
     <link
@@ -25,7 +25,7 @@
     <!-- css -->
     <link rel="stylesheet" href="styles.css" />
     <!-- js files -->
-    <script src="/jsfiles/welcome.js" defer></script>
+    <script src="/jsfiles/welcomeadmin.js" defer></script>
   </head>
   <body>
     <header>
@@ -34,10 +34,29 @@
       </div>
     </header>
     <section>
-      <h2 class="heading text-white"></h2>
+      <h2 class="header1 text-white text-center" id="heading"></h2>
+    </section>
+    <!-- table section -->
+    <section>
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Role</th>
+              <th scope="col">city</th>
+
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- blog section -->
     <!-- blog section -->
     <section id="secblog">
       <div class="container-flex header text-light text-center fs-3">Blogs</div>
