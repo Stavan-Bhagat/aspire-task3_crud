@@ -28,13 +28,17 @@ if (userdata.length > 0) {
 // delete data
 
 function deletedata(userEmail) {
-  var users = JSON.parse(localStorage.getItem("users"));
-  var restUsers = users.filter(function (user) {
-    return user.email !== userEmail;
-  });
-  console.log(restUsers);
-  localStorage.setItem("users", JSON.stringify(restUsers));
-  location.reload();
+  let result = confirm("are you sure you want to delete it?");
+  if (result) {
+    var users = JSON.parse(localStorage.getItem("users"));
+    var restUsers = users.filter(function (user) {
+      return user.email !== userEmail;
+    });
+    localStorage.setItem("users", JSON.stringify(restUsers));
+    location.reload();
+  } else {
+    console.log("user click cancel");
+  }
 }
 
 // update the data
@@ -107,11 +111,16 @@ function displayBlogs() {
 }
 
 function deleteBlog(index) {
-  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-  blogdata.splice(index, 1);
-  localStorage.setItem("blog", JSON.stringify(blogdata));
-  location.reload();
-  displayBlogs();
+  let result = confirm("are you sure you want to delete it?");
+  if (result) {
+    let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
+    blogdata.splice(index, 1);
+    localStorage.setItem("blog", JSON.stringify(blogdata));
+    location.reload();
+    displayBlogs();
+  } else {
+    console.log("clicked cancel");
+  }
 }
 
 function updateblog(index) {
@@ -119,7 +128,7 @@ function updateblog(index) {
 
   document.getElementById("utitle").value = blogdata[index].title;
   document.getElementById("udiscription").value = blogdata[index].discription;
-  debugger;
+
   document.getElementById("updateBlogbtn").addEventListener("click", () => {
     let title = document.getElementById("utitle").value;
     let discription = document.getElementById("udiscription").value;
