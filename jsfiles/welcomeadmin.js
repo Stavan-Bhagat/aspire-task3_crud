@@ -6,7 +6,6 @@ heading.innerHTML = `hello ${userName}`;
 const table = document.querySelector("table");
 const userdata = JSON.parse(localStorage.getItem("users"));
 let tablerows = "";
-console.log(userdata);
 
 if (userdata.length > 0) {
   for (let i = 0; i < userdata.length; i++) {
@@ -18,12 +17,12 @@ if (userdata.length > 0) {
     <td>${userdata[i].role}</td>
     <td>${userdata[i].city}</td>
    
-    <td> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal" onclick="updatedata('${userdata[i].email
-    }')">
+    <td> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal" onclick=updatedata(${i})>
     Update
   </button></td>
-    <td><button type="button" class="btn btn-danger" onclick="deletedata('${userdata[i].email
-      }')">Delete</button></td>
+    <td><button type="button" class="btn btn-danger" onclick="deletedata('${
+      userdata[i].email
+    }')">Delete</button></td>
     </tr>`;
   }
   tbody.innerHTML = tablerows;
@@ -43,38 +42,28 @@ function deletedata(userEmail) {
 }
 
 // update the data
-
-function updatedata(email) {
-  return email;
-}
-document.getElementById('submitBtn').addEventListener('click', function () {
-  let index = updatedata();
+function updatedata(index) {
   console.log(index);
-  let myform = document.forms['myform']
-  let uname = myform.elements['name'].value;
-  let uemail = myform.elements['email'].value;
-  let urole = myform.elements['role'].value;
-  let ucity = myform.elements['city'].value;
-
-  var updateddata = {
-    name: uname,
-    email: uemail,
-    role: urole,
-    city: ucity
-  }
   var users = JSON.parse(localStorage.getItem("users"));
-  function updateUser(index, newData) {
-    if (users && users[index]) {
+  console.log(users);
+  document.getElementById("name").value = users[index].name;
+  document.getElementById("email").value = users[index].email;
+  document.getElementById("role").value = users[index].role;
+  document.getElementById("city").value = users[index].city;
 
-      users[index] = newData;
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    let updatedName = document.getElementById("name").value;
+    let updatedEmail = document.getElementById("email").value;
+    let updatedRole = document.getElementById("role").value;
+    let updatedCity = document.getElementById("city").value;
 
+    users[index].name = updatedName;
+    users[index].email = updatedEmail;
+    users[index].role = updatedRole;
+    users[index].city = updatedCity;
 
-      localStorage.setItem('userData', JSON.stringify(users));
-      return true;
-    } else {
-      return false;
-    }
-  }
-  updateUser(updatedata, updateddata);
+    localStorage.setItem("users", JSON.stringify(users));
 
-});
+    location.reload();
+  });
+}
