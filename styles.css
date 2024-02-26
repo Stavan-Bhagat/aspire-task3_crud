@@ -51,3 +51,8 @@ body {
   height: auto;
   width: 95%;
 }
+#addBlog {
+  background: #375e97;
+  color: white;
+  border-radius: 2%;
+}

@@ -61,3 +61,73 @@ function updatedata(index) {
     location.reload();
   });
 }
+
+// add blog
+function addblog() {
+  let blogForm = document.getElementById("blogform");
+  let blog = JSON.parse(localStorage.getItem("blog")) || [];
+  let title = document.getElementById("title").valuel;
+  console.log(title);
+  let blogobj = {
+    title: document.getElementById("title").value,
+    discription: document.getElementById("discription").value,
+  };
+  console.log(blogobj);
+  blog.push(blogobj);
+
+  localStorage.setItem("blog", JSON.stringify(blog));
+
+  blogForm.reset();
+
+  displayBlogs();
+}
+
+function displayBlogs() {
+  let tBlogBody = document.getElementById("blogTbody");
+  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
+  let tablerows = "";
+
+  if (blogdata.length > 0) {
+    for (let i = 0; i < blogdata.length; i++) {
+      tablerows += `
+        <tr> 
+          <td>${i + 1}</td>
+          <td>${blogdata[i].title}</td>
+          <td>${blogdata[i].discription}</td>
+          <td>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateBlog" onclick="updateblog(${i})">Update</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" onclick="deleteBlog(${i})">Delete</button>
+          </td>
+        </tr>`;
+    }
+    tBlogBody.innerHTML = tablerows;
+  }
+}
+
+function deleteBlog(index) {
+  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
+  blogdata.splice(index, 1);
+  localStorage.setItem("blog", JSON.stringify(blogdata));
+  location.reload();
+  displayBlogs();
+}
+
+function updateblog(index) {
+  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
+
+  document.getElementById("utitle").value = blogdata[index].title;
+  document.getElementById("udiscription").value = blogdata[index].discription;
+  debugger;
+  document.getElementById("updateBlogbtn").addEventListener("click", () => {
+    let title = document.getElementById("utitle").value;
+    let discription = document.getElementById("udiscription").value;
+    blogdata[index].title = title;
+    blogdata[index].discription = discription;
+
+    localStorage.setItem("blog", JSON.stringify(blogdata));
+    location.reload();
+  });
+}
+displayBlogs();

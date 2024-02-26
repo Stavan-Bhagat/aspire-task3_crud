@@ -60,79 +60,7 @@
         </table>
       </div>
     </section>
-    <!-- update form -->
-    <!-- <div
-      class="modal fade"
-      id="updateModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="updateModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="updateModalLabel">Update Form</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="updateForm">
-              <div class="form-group py-1">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div class="form-group py-1">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div class="form-group py-1">
-                <select class="form-select" id="role" name="role">
-                  <option value="" disabled selected>Select Role</option>
-                  <option value="user">User</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
 
-              <div class="form-group py-1">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="city"
-                  placeholder="Enter your city"
-                />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" id="submitBtn">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div
       class="modal fade"
       id="updateModal"
@@ -197,7 +125,17 @@
 
     <!-- blog section -->
     <section id="secblog">
-      <div class="container-flex header text-light text-center fs-3">Blogs</div>
+      <div class="container-flex header text-light text-center fs-3">
+        Blogs
+        <button
+          type="button"
+          class="btn btn-primary float-end"
+          data-toggle="modal"
+          data-target="#blog"
+        >
+          Add
+        </button>
+      </div>
       <div class="container-flex text-light">
         <div class="row">
           <div class="col-md-4">
@@ -217,25 +155,127 @@
             </p>
           </div>
           <hr />
-          <div class="col-md-4">
-            <img src="images/task1.png" alt="task1" class="imgs" />
-            <p class="fw-bolder">
-              Building Your Gym's Online Presence: A Step-by-Step Guide
-            </p>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Discription</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="blogTbody"></tbody>
+        </table>
+      </div>
+    </section>
+    <!-- blog form -->
+    <div class="modal" tabindex="-1" role="dialog" id="blog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="col-md-4">
-            <img src="images/task2.png" alt="task2" class="imgs" />Crafting
-            Timeless Web Experiences: The Art of Building Static HTML/CSS Sites"
-          </div>
-          <div class="col-md-4">
-            <img src="images/task3.png" alt="task3" class="imgs" />CRUD
-            Operations: Unleashing the Power of JavaScript for Web Applications
+          <div class="modal-body">
+            <form nane="blogform">
+              <div class="form-group py-1">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  placeholder="Enter Title"
+                />
+              </div>
+              <div class="form-group py-1">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="discription"
+                  placeholder="Enter Discription"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary py-2"
+                id="submitBlog"
+                onclick="addblog()"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
-      <div class="container-flex header text-light fs-5 text-center">
-        Stay Connected For More Blogs
+    </div>
+    <!-- update form -->
+    <div class="modal" tabindex="-1" role="dialog" id="updateBlog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">update form</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="blogform">
+              <div class="form-group py-1">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="utitle"
+                  placeholder="Enter Title"
+                />
+              </div>
+              <div class="form-group py-1">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="udiscription"
+                  placeholder="Enter Discription"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary py-2"
+                id="updateBlogbtn"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   </body>
 </html>
