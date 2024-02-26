@@ -2,7 +2,6 @@ const userName = localStorage.getItem("name");
 const heading = document.querySelector("#heading");
 const tbody = document.querySelector("#tbody");
 heading.innerHTML = `hello ${userName}`;
-
 const table = document.querySelector("table");
 const userdata = JSON.parse(localStorage.getItem("users"));
 let tablerows = "";
@@ -16,10 +15,8 @@ if (userdata.length > 0) {
     <td>${userdata[i].email}</td>
     <td>${userdata[i].role}</td>
     <td>${userdata[i].city}</td>
-   
     <td> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal" onclick=updatedata(${i})>
-    Update
-  </button></td>
+    Update </button></td>
     <td><button type="button" class="btn btn-danger" onclick="deletedata('${
       userdata[i].email
     }')">Delete</button></td>
@@ -32,7 +29,6 @@ if (userdata.length > 0) {
 
 function deletedata(userEmail) {
   var users = JSON.parse(localStorage.getItem("users"));
-
   var restUsers = users.filter(function (user) {
     return user.email !== userEmail;
   });
@@ -43,9 +39,8 @@ function deletedata(userEmail) {
 
 // update the data
 function updatedata(index) {
-  console.log(index);
   var users = JSON.parse(localStorage.getItem("users"));
-  console.log(users);
+  // fill the form with existing value
   document.getElementById("name").value = users[index].name;
   document.getElementById("email").value = users[index].email;
   document.getElementById("role").value = users[index].role;
@@ -63,7 +58,6 @@ function updatedata(index) {
     users[index].city = updatedCity;
 
     localStorage.setItem("users", JSON.stringify(users));
-
     location.reload();
   });
 }

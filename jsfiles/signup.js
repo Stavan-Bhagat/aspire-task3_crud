@@ -1,5 +1,6 @@
 document.getElementById("myForm").addEventListener("submit", (e) => {
   e.preventDefault();
+
   if (validate()) {
     if (isEmailExist()) {
       console.log("inside exist");
@@ -9,10 +10,8 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
     } else {
       const success = document.querySelector("#successMessage");
       const { name, email, role, city, password } = getFormValues();
-
       const encryptpassword = btoa(password);
       success.style.display = "block";
-
       let user = JSON.parse(localStorage.getItem("users")) || [];
 
       const data = {
@@ -24,7 +23,6 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
       };
 
       user.push(data);
-
       var userdata = localStorage.setItem("users", JSON.stringify(user));
       console.log(userdata);
       e.target.reset();
@@ -47,7 +45,6 @@ function getFormValues() {
 
 function isEmailExist() {
   const { email } = getFormValues();
-
   const userdata = JSON.parse(localStorage.getItem("users"));
 
   if (userdata === null) {
