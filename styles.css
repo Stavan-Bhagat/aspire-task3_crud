@@ -35,7 +35,9 @@ body {
 }
 
 /* welcome header blog */
-
+.logout{
+  background: none;
+}
 .header {
   background-color: #fb6542;
 }
@@ -51,6 +53,7 @@ body {
   height: auto;
   width: 95%;
 }
+
 /* #addBlog {
   background: #37974d;
   color: white;

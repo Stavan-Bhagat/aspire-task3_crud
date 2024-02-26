@@ -31,14 +31,16 @@
     <!-- js files -->
     <script src="/jsfiles/welcomeadmin.js" defer></script>
   </head>
-  <body>
+  <body onload="stopBack()">
     <header>
       <div class="container-fluid fs-2 text-white text-center p-2">
-        <p class="d-inline-block">CRUD Application using Local Storage</p>
+        <p class="d-inline-block">CRUD Application using Local Storage</p><button type="button" class="btn btn-primary logout float-end">Log out</button>
       </div>
     </header>
-    <section>
-      <h2 class="header1 text-white text-center" id="heading"></h2>
+    <section><div>
+      <h2 class="header1 text-white text-center" id="heading"> </h2>
+    </div>
+      
     </section>
     <!-- table section -->
     <section>
@@ -129,7 +131,7 @@
         Blogs
         <button
           type="button"
-          class="btn btn-primary float-end addblogbtn p-2  rounded-0 border-success"
+          class="btn btn-primary float-end addblogbtn p-2  rounded-0 border-secondary "
           data-toggle="modal"
           data-target="#blog"
         >

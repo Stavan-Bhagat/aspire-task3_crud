@@ -1,3 +1,14 @@
+// logout
+document.querySelector(".logout").addEventListener("click", () => {
+  let result = confirm("are you sure you want to logout");
+  if (result) {
+    window.location.href = "crud.html";
+    window.history.go(1);
+  } else {
+    console.log("user click cancel");
+  }
+});
+
 const userName = localStorage.getItem("name");
 const heading = document.querySelector("#heading");
 const tbody = document.querySelector("#tbody");
@@ -140,3 +151,6 @@ function updateblog(index) {
   });
 }
 displayBlogs();
+function stopBack() {
+  window.history.go(1);
+}
