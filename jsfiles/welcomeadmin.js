@@ -3,12 +3,11 @@ document.querySelector(".logout").addEventListener("click", () => {
   let result = confirm("are you sure you want to logout");
   if (result) {
     window.location.href = "crud.html";
-    window.history.go(1);
   } else {
     console.log("user click cancel");
   }
 });
-
+// display userdata
 const userName = localStorage.getItem("name");
 const heading = document.querySelector("#heading");
 const tbody = document.querySelector("#tbody");
@@ -37,7 +36,6 @@ if (userdata.length > 0) {
 }
 
 // delete data
-
 function deletedata(userEmail) {
   let result = confirm("are you sure you want to delete it?");
   if (result) {
@@ -89,11 +87,9 @@ function addblog() {
   };
   console.log(blogobj);
   blog.push(blogobj);
-
   localStorage.setItem("blog", JSON.stringify(blog));
 
   blogForm.reset();
-
   displayBlogs();
 }
 
@@ -136,7 +132,6 @@ function deleteBlog(index) {
 
 function updateblog(index) {
   let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-
   document.getElementById("utitle").value = blogdata[index].title;
   document.getElementById("udiscription").value = blogdata[index].discription;
 
@@ -145,7 +140,6 @@ function updateblog(index) {
     let discription = document.getElementById("udiscription").value;
     blogdata[index].title = title;
     blogdata[index].discription = discription;
-
     localStorage.setItem("blog", JSON.stringify(blogdata));
     location.reload();
   });

@@ -6,7 +6,6 @@ function displayBlogs() {
   let tBlogBody = document.getElementById("blogTbody");
   let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
   let tablerows = "";
-
   if (blogdata.length > 0) {
     for (let i = 0; i < blogdata.length; i++) {
       tablerows += `
@@ -21,10 +20,3 @@ function displayBlogs() {
   }
 }
 displayBlogs();
-
-//   <td>
-//   <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateBlog" onclick="updateblog(${i})">Update</button>
-// </td>
-// <td>
-//   <button type="button" class="btn btn-danger" onclick="deleteBlog(${i})">Delete</button>
-// </td>

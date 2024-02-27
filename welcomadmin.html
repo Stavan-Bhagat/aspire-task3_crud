@@ -34,13 +34,16 @@
   <body onload="stopBack()">
     <header>
       <div class="container-fluid fs-2 text-white text-center p-2">
-        <p class="d-inline-block">CRUD Application using Local Storage</p><button type="button" class="btn btn-primary logout float-end">Log out</button>
+        <p class="d-inline-block">CRUD Application using Local Storage</p>
+        <button type="button" class="btn btn-primary logout float-end">
+          Log out
+        </button>
       </div>
     </header>
-    <section><div>
-      <h2 class="header1 text-white text-center" id="heading"> </h2>
-    </div>
-      
+    <section>
+      <div>
+        <h2 class="header1 text-white text-center" id="heading"></h2>
+      </div>
     </section>
     <!-- table section -->
     <section>
@@ -62,7 +65,6 @@
         </table>
       </div>
     </section>
-
     <div
       class="modal fade"
       id="updateModal"
@@ -77,7 +79,7 @@
             <button
               type="button"
               class="btn-close"
-              data-bs-dismiss="modal"
+              data-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
@@ -107,7 +109,6 @@
                   <option value="admin">Admin</option>
                 </select>
               </div>
-
               <div class="form-group py-1">
                 <input
                   type="text"
@@ -124,14 +125,13 @@
         </div>
       </div>
     </div>
-
     <!-- blog section -->
     <section id="secblog">
       <div class="container-flex header text-light text-center fs-3">
         Blogs
         <button
           type="button"
-          class="btn btn-primary float-end addblogbtn p-2  rounded-0 border-secondary "
+          class="btn btn-primary float-end addblogbtn p-2 rounded-0 border-secondary"
           data-toggle="modal"
           data-target="#blog"
         >

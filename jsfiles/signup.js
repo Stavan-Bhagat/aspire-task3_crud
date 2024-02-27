@@ -1,11 +1,9 @@
-
 document.getElementById("myForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (validate()) {
     if (isEmailExist()) {
       console.log("inside exist");
-
       document.querySelector("#semail").textContent = `email already exist`;
       return false;
     } else {
@@ -22,7 +20,6 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
         role: role,
         password: encryptpassword,
       };
-
       user.push(data);
       var userdata = localStorage.setItem("users", JSON.stringify(user));
       console.log(userdata);
@@ -43,11 +40,9 @@ function getFormValues() {
   };
 }
 // isemail exist
-
 function isEmailExist() {
   const { email } = getFormValues();
   const userdata = JSON.parse(localStorage.getItem("users"));
-
   if (userdata === null) {
     return false;
   } else {

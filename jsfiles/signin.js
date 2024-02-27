@@ -13,11 +13,9 @@ signin.addEventListener("submit", (event) => {
       console.log(user.role);
       localStorage.setItem("name", JSON.stringify(user.name));
       window.location.href = "welcome.html";
-      window.history.go(1);
     } else {
       localStorage.setItem("name", JSON.stringify(user.name));
       window.location.href = "welcomadmin.html";
-      window.history.go(1);
     }
   } else {
     document.querySelector(
@@ -25,6 +23,7 @@ signin.addEventListener("submit", (event) => {
     ).textContent = `invalid email or password`;
   }
 });
+// stop for going back
 function stopBack() {
   window.history.go(1);
 }
