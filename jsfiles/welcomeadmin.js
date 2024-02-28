@@ -2,7 +2,7 @@
 document.querySelector(".logout").addEventListener("click", () => {
   let result = confirm("are you sure you want to logout");
   if (result) {
-    window.location.href = "crud.html";
+    window.location.href = "index.html";
   } else {
     console.log("user click cancel");
   }

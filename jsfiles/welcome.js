@@ -1,3 +1,12 @@
+document.querySelector(".logout").addEventListener("click", () => {
+  let result = confirm("are you sure you want to logout");
+  if (result) {
+    window.location.href = "index.html";
+  } else {
+    console.log("user click cancel");
+  }
+});
+
 const userName = localStorage.getItem("name");
 const heading = document.querySelector(".heading");
 heading.innerHTML = `hello ${userName}`;
@@ -20,3 +29,7 @@ function displayBlogs() {
   }
 }
 displayBlogs();
+
+function stopBack() {
+  window.history.go(1);
+}
