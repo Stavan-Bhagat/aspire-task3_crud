@@ -1,5 +1,5 @@
-const signin = document.getElementById("signIn");
-signin.addEventListener("submit", (event) => {
+const signIn = document.getElementById("signIn");
+signIn.addEventListener("submit", (event) => {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -12,14 +12,14 @@ signin.addEventListener("submit", (event) => {
     if (user.role === "user") {
       console.log(user.role);
       localStorage.setItem("name", JSON.stringify(user.name));
-      window.location.href = "welcome.html";
+      window.location.href = "welcomeUser.html";
     } else {
       localStorage.setItem("name", JSON.stringify(user.name));
-      window.location.href = "welcomadmin.html";
+      window.location.href = "welcomeAdmin.html";
     }
   } else {
     document.querySelector(
-      "#errormsg"
+      "#errorMessage"
     ).textContent = `invalid email or password`;
   }
 });

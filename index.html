@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signIn Page </title>
     <!-- bootstrap cdn -->
-    <script src="jsfiles/bootscript.js"></script>
+    <script src="jsfiles/bootstrap.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="styles.css" />
     <!-- js files -->
@@ -18,45 +18,45 @@
         <p class="d-inline-block">CRUD Application using Local Storage</p>
       </div>
     </header>
-    <div class="container d-flex align-items-center justify-content-center">
-      <div
-        class="innerDiv shadow-sm py-4 px-4 my-5 bg-white rounded text-secondary-emphasis"
+    <div class="container  d-flex align-items-center justify-content-center" style="width: 30%;height:80vh">
+    
+      <form
+        class="row g-4 shadow-sm p-4 bg-body rounded bg-light"
+        id="signIn"
+        method="post"
       >
-        <h2 class="text-dark pb-3">
-          SIGN IN <i class="fa-solid fa-dumbbell float-end"></i>
-        </h2>
-        <form class="row g-3" style="height: 45vh" id="signIn" method="post">
-          <div class="col-md-12">
-            <input
-              type="email"
-              class="form-control rounded-0"
-              name="name"
-              id="email"
-              placeholder="email"
-            />
-          </div>
-          <div class="col-md-12">
-            <input
-              type="password"
-              class="form-control rounded-0"
-              name="password"
-              id="password"
-              placeholder="password"
-            />
-            <div id="errormsg" class="text-danger"></div>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary rounded-0" id="submit">
-              Submit
-            </button>
-          </div>
-          <p>
-            <a class="form__link" href="signup.html" id="register"
-              >Don't have an account? Register</a
-            >
-          </p>
-        </form>
-      </div>
+      <h2 class="text-black m-0">SIGN IN</h2>
+        <div class="col-md-12">
+          <input
+            type="email"
+            class="form-control rounded-0"
+            name="email"
+            id="email"
+            placeholder="email"
+          />
+        </div>
+        <div class="col-md-12">
+          <input
+            type="password"
+            class="form-control rounded-0"
+            name="password"
+            id="password"
+            placeholder="password"
+          />
+          <div id="errorMessage" class="text-danger"></div>
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary rounded-5" id="submit">
+            Submit
+          </button>
+        </div>
+        <p>
+          <a class="form__link" href="signup.html" id="register"
+            >Don't have an account? Register</a
+          >
+        </p>
+      </form>
+      <div id="response" class="text-light mt-2"></div>
     </div>
   </body>
 </html>

@@ -4,12 +4,12 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
   if (validate()) {
     if (isEmailExist()) {
       console.log("inside exist");
-      document.querySelector("#semail").textContent = `email already exist`;
+      document.querySelector("#errorEmail").textContent = `email already exist`;
       return false;
     } else {
       const success = document.querySelector("#successMessage");
       const { name, email, role, city, password } = getFormValues();
-      const encryptpassword = btoa(password);
+      const encryptPassword = btoa(password);
       success.style.display = "block";
       let user = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -18,11 +18,11 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
         email: email,
         city: city,
         role: role,
-        password: encryptpassword,
+        password: encryptPassword,
       };
       user.push(data);
-      var userdata = localStorage.setItem("users", JSON.stringify(user));
-      console.log(userdata);
+      var userData = localStorage.setItem("users", JSON.stringify(user));
+      console.log(userData);
       e.target.reset();
     }
   }
@@ -39,18 +39,18 @@ function getFormValues() {
     confirmPassword: document.getElementById("confirmPassword").value,
   };
 }
-// isemail exist
+// ismail exist
 function isEmailExist() {
   const { email } = getFormValues();
-  const userdata = JSON.parse(localStorage.getItem("users"));
-  if (userdata === null) {
+  const userData = JSON.parse(localStorage.getItem("users"));
+  if (userData === null) {
     return false;
   } else {
-    const emailcheck = userdata.some((element) => {
+    const emailCheck = userData.some((element) => {
       return element.email === email;
     });
-    console.log(emailcheck);
-    return emailcheck;
+    console.log(emailCheck);
+    return emailCheck;
   }
 }
 // validation checking
@@ -61,50 +61,50 @@ function validate() {
   const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
   if (name === "") {
-    document.getElementById("sname").innerHTML = "it should not be empty";
+    document.getElementById("errorName").innerHTML = "it should not be empty";
     valid = false;
   } else {
-    document.getElementById("sname").innerHTML = "";
+    document.getElementById("errorName").innerHTML = "";
   }
 
   if (email === "") {
-    document.getElementById("semail").innerHTML = "it should not be empty";
+    document.getElementById("errorEmail").innerHTML = "it should not be empty";
     valid = false;
   } else if (!emailRegex.test(email)) {
-    document.getElementById("semail").innerHTML = "incorrect email";
+    document.getElementById("errorEmail").innerHTML = "incorrect email";
     valid = false;
   } else {
-    document.getElementById("semail").innerHTML = "";
+    document.getElementById("errorEmail").innerHTML = "";
   }
 
   if (city === "") {
-    document.getElementById("scity").innerHTML = "it should not be empty";
+    document.getElementById("errorCity").innerHTML = "it should not be empty";
     valid = false;
   } else {
-    document.getElementById("scity").innerHTML = "";
+    document.getElementById("errorCity").innerHTML = "";
   }
 
   if (password.length < 8) {
-    document.getElementById("spassword").innerHTML =
+    document.getElementById("errorPassword").innerHTML =
       "it should contain 8 characters";
     valid = false;
   } else if (password === "") {
-    document.getElementById("spassword").innerHTML = "it should not be empty";
+    document.getElementById("errorPassword").innerHTML = "it should not be empty";
     valid = false;
   } else {
-    document.getElementById("spassword").innerHTML = "";
+    document.getElementById("errorPassword").innerHTML = "";
   }
 
   if (confirmPassword !== password) {
-    document.getElementById("sConfirmPassword").innerHTML =
+    document.getElementById("errorConfirmPassword").innerHTML =
       "password does not match";
     valid = false;
   } else if (password === "") {
-    document.getElementById("sConfirmPassword").innerHTML =
+    document.getElementById("errorConfirmPassword").innerHTML =
       "it should not be empty";
     valid = false;
   } else {
-    document.getElementById("sConfirmPassword").innerHTML = "";
+    document.getElementById("errorConfirmPassword").innerHTML = "";
   }
   return valid;
 }

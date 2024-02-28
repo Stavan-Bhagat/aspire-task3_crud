@@ -13,19 +13,19 @@ heading.innerHTML = `hello ${userName}`;
 
 function displayBlogs() {
   let tBlogBody = document.getElementById("blogTbody");
-  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-  let tablerows = "";
-  if (blogdata.length > 0) {
-    for (let i = 0; i < blogdata.length; i++) {
-      tablerows += `
+  let blogData = JSON.parse(localStorage.getItem("blog")) || [];
+  let tableRows = "";
+  if (blogData.length > 0) {
+    for (let i = 0; i < blogData.length; i++) {
+      tableRows += `
           <tr> 
             <td>${i + 1}</td>
-            <td>${blogdata[i].title}</td>
-            <td>${blogdata[i].discription}</td>
+            <td>${blogData[i].title}</td>
+            <td>${blogData[i].description}</td>
           
           </tr>`;
     }
-    tBlogBody.innerHTML = tablerows;
+    tBlogBody.innerHTML = tableRows;
   }
 }
 displayBlogs();

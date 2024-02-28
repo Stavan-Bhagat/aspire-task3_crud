@@ -7,36 +7,35 @@ document.querySelector(".logout").addEventListener("click", () => {
     console.log("user click cancel");
   }
 });
-// display userdata
+// display userData
 const userName = localStorage.getItem("name");
 const heading = document.querySelector("#heading");
 const tbody = document.querySelector("#tbody");
 heading.innerHTML = `hello ${userName}`;
 const table = document.querySelector("table");
-const userdata = JSON.parse(localStorage.getItem("users"));
-let tablerows = "";
+const userData = JSON.parse(localStorage.getItem("users"));
+let tableRows = "";
 
-if (userdata.length > 0) {
-  for (let i = 0; i < userdata.length; i++) {
-    tablerows += `
+if (userData.length > 0) {
+  for (let i = 0; i < userData.length; i++) {
+    tableRows += `
     <tr> 
     <td>${i + 1}    </td>
-    <td>${userdata[i].name}</td>
-    <td>${userdata[i].email}</td>
-    <td>${userdata[i].role}</td>
-    <td>${userdata[i].city}</td>
-    <td> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal" onclick=updatedata(${i})>
+    <td>${userData[i].name}</td>
+    <td>${userData[i].email}</td>
+    <td>${userData[i].role}</td>
+    <td>${userData[i].city}</td>
+    <td> <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateModal" onclick=updateData(${i})>
     Update </button></td>
-    <td><button type="button" class="btn btn-danger" onclick="deletedata('${
-      userdata[i].email
-    }')">Delete</button></td>
+    <td><button type="button" class="btn btn-danger" onclick="deleteData('${userData[i].email
+      }')">Delete</button></td>
     </tr>`;
   }
-  tbody.innerHTML = tablerows;
+  tbody.innerHTML = tableRows;
 }
 
 // delete data
-function deletedata(userEmail) {
+function deleteData(userEmail) {
   let result = confirm("are you sure you want to delete it?");
   if (result) {
     var users = JSON.parse(localStorage.getItem("users"));
@@ -51,7 +50,7 @@ function deletedata(userEmail) {
 }
 
 // update the data
-function updatedata(index) {
+function updateData(index) {
   var users = JSON.parse(localStorage.getItem("users"));
   // fill the form with existing value
   document.getElementById("name").value = users[index].name;
@@ -76,35 +75,33 @@ function updatedata(index) {
 }
 
 // add blog
-function addblog() {
-  let blogForm = document.getElementById("blogform");
+function addBlog() {
+  let blogForm = document.getElementById("blogForm");
   let blog = JSON.parse(localStorage.getItem("blog")) || [];
-  let title = document.getElementById("title").valuel;
+  let title = document.getElementById("title").value;
   console.log(title);
-  let blogobj = {
+  let blogObj = {
     title: document.getElementById("title").value,
-    discription: document.getElementById("discription").value,
+    description: document.getElementById("description").value,
   };
-  console.log(blogobj);
-  blog.push(blogobj);
+  blog.push(blogObj);
   localStorage.setItem("blog", JSON.stringify(blog));
-
   blogForm.reset();
   displayBlogs();
 }
 
 function displayBlogs() {
   let tBlogBody = document.getElementById("blogTbody");
-  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-  let tablerows = "";
+  let blogData = JSON.parse(localStorage.getItem("blog")) || [];
+  let tableRows = "";
 
-  if (blogdata.length > 0) {
-    for (let i = 0; i < blogdata.length; i++) {
-      tablerows += `
+  if (blogData.length > 0) {
+    for (let i = 0; i < blogData.length; i++) {
+      tableRows += `
         <tr> 
           <td>${i + 1}</td>
-          <td>${blogdata[i].title}</td>
-          <td>${blogdata[i].discription}</td>
+          <td>${blogData[i].title}</td>
+          <td>${blogData[i].description}</td>
           <td>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateBlog" onclick="updateblog(${i})">Update</button>
           </td>
@@ -113,16 +110,16 @@ function displayBlogs() {
           </td>
         </tr>`;
     }
-    tBlogBody.innerHTML = tablerows;
+    tBlogBody.innerHTML = tableRows;
   }
 }
 
 function deleteBlog(index) {
   let result = confirm("are you sure you want to delete it?");
   if (result) {
-    let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-    blogdata.splice(index, 1);
-    localStorage.setItem("blog", JSON.stringify(blogdata));
+    let blogData = JSON.parse(localStorage.getItem("blog")) || [];
+    blogData.splice(index, 1);
+    localStorage.setItem("blog", JSON.stringify(blogData));
     location.reload();
     displayBlogs();
   } else {
@@ -130,17 +127,17 @@ function deleteBlog(index) {
   }
 }
 
-function updateblog(index) {
-  let blogdata = JSON.parse(localStorage.getItem("blog")) || [];
-  document.getElementById("utitle").value = blogdata[index].title;
-  document.getElementById("udiscription").value = blogdata[index].discription;
+function updateBlog(index) {
+  let blogData = JSON.parse(localStorage.getItem("blog")) || [];
+  document.getElementById("updateTitle").value = blogData[index].title;
+  document.getElementById("updateDescription").value = blogData[index].description;
 
-  document.getElementById("updateBlogbtn").addEventListener("click", () => {
-    let title = document.getElementById("utitle").value;
-    let discription = document.getElementById("udiscription").value;
-    blogdata[index].title = title;
-    blogdata[index].discription = discription;
-    localStorage.setItem("blog", JSON.stringify(blogdata));
+  document.getElementById("updateBlogButton").addEventListener("click", () => {
+    let title = document.getElementById("updateTitle").value;
+    let description = document.getElementById("updateDescription").value;
+    blogData[index].title = title;
+    blogData[index].description = description;
+    localStorage.setItem("blog", JSON.stringify(blogData));
     location.reload();
   });
 }

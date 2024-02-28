@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signup</title>
     <!-- bootstrap cdn -->
-    <script src="jsfiles/bootscript.js"></script>
+    <script src="jsfiles/bootstrap.js"></script>
     <!-- font-awesome cdn -->
     <link
       rel="stylesheet"
@@ -19,22 +19,24 @@
     <!--jsFile  -->
     <script src="/jsfiles/signup.js" defer></script>
   </head>
-  <body class="">
+  <body>
     <header>
       <div class="container-fluid fs-2 text-white text-center">
         CRUD Application using Local Storage
       </div>
     </header>
-    <div class="container p-4" style="width: 30%; height: 100vh">
-      <h2 class="text-white pb-3 mt-5">
-        SIGN UP
-        <span
-          id="successMessage"
-          style="color: green; text-shadow: 1px 1px 1px white; display: none"
-          >SUCCESSFUL</span
-        >
-      </h2>
-      <form class="row g-3 shadow-sm p-4 bg-body rounded bg-light" id="myForm" method="post">
+    <div class="container p-4 d-flex align-items-center justify-content-center " style="width: 30%; height: 90vh">
+      <form
+        class="row g-3 shadow-sm p-4 bg-body rounded bg-light"
+        id="myForm"
+        method="post"
+      >
+      <h2 class="text-black m-0">
+        SIGN UP <span
+        id="successMessage"
+        style="color: green; text-shadow: 1px 1px 1px white; display: none"
+        >SUCCESSFUL</span
+      ></h2>
         <div class="col-md-12">
           <input
             type="text"
@@ -43,7 +45,7 @@
             name="name"
             placeholder="Name"
           />
-          <span id="sname" class="error text-danger"></span>
+          <span id="errorName" class="error text-danger"></span>
         </div>
         <div class="col-md-12">
           <input
@@ -52,7 +54,7 @@
             id="email"
             name="email"
             placeholder="Email"
-          /><span id="semail" class="error text-danger"></span>
+          /><span id="errorEmail" class="error text-danger"></span>
         </div>
         <div class="col-md-12">
           <input
@@ -61,11 +63,11 @@
             id="city"
             name="city"
             placeholder="city"
-          /><span id="scity" class="error text-danger"></span>
+          /><span id="errorCity" class="error text-danger"></span>
         </div>
         <div class="col-md-12">
           <select class="form-select" id="role" name="role">
-            <option value="" disabled selected>Select Role</option>
+            <option  disabled selected>Select Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
@@ -77,7 +79,7 @@
             id="password"
             name="password"
             placeholder="password"
-          /><span class="error text-danger" id="spassword"></span>
+          /><span class="error text-danger" id="errorPassword"></span>
         </div>
         <div class="col-md-12">
           <input
@@ -86,7 +88,7 @@
             id="confirmPassword"
             name="confirmPassword"
             placeholder="confirmPassword"
-          /><span class="error text-danger" id="sConfirmPassword"></span>
+          /><span class="error text-danger" id="errorConfirmPassword"></span>
         </div>
         <div class="col-4 mt-4 fs-5 pt-2">
           <a href="index.html" class="btn-secondary rounded-0 mt-3" id="back">
@@ -96,7 +98,7 @@
         <div class="col-8">
           <button
             type="submit"
-            class="btn btn-primary rounded-0 mt-3"
+            class="btn btn-primary rounded-5 mt-3"
             id="submit"
           >
             Submit

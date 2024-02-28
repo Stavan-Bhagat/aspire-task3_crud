@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>welcome page</title>
     <!-- bootstrap cdn -->
-    <script src="jsfiles/bootscript.js"></script>
+    <script src="jsfiles/bootstrap.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="styles.css" />
     <!-- js files -->
-    <script src="/jsfiles/welcome.js" defer></script>
+    <script src="/jsfiles/welcomeUser.js" defer></script>
   </head>
   <body onload="stopBack()">
     <header>
@@ -27,7 +27,7 @@
     <section id="secblog">
       <div class="container-flex header text-light text-center fs-3">Blogs</div>
       <div class="container-flex text-light">
-        <div class="row">
+        <div class="row blogText">
           <div class="col-md-4">
             <img src="images/learn.png" alt="desktopPic" class="dp" />
           </div>
@@ -44,19 +44,23 @@
               building stunning web experiences. In this blog.
             </p>
           </div>
-          <hr />
+        </div>
+      </div>
+      <hr />
+      <div class="container-fluid text-center text-white">
+        <div class="row">
           <div class="col-md-4">
-            <img src="images/task1.png" alt="task1" class="imgs" />
+            <img src="images/task1.png" alt="task1" class="images" />
             <p class="fw-bolder">
               Building Your Gym's Online Presence: A Step-by-Step Guide
             </p>
           </div>
           <div class="col-md-4">
-            <img src="images/task2.png" alt="task2" class="imgs" />Crafting
+            <img src="images/task2.png" alt="task2" class="images" />Crafting
             Timeless Web Experiences: The Art of Building Static HTML/CSS Sites"
           </div>
           <div class="col-md-4">
-            <img src="images/task3.png" alt="task3" class="imgs" />CRUD
+            <img src="images/task3.png" alt="task3" class="images" />CRUD
             Operations: Unleashing the Power of JavaScript for Web Applications
           </div>
         </div>
@@ -67,7 +71,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Title</th>
-              <th scope="col">Discription</th>
+              <th scope="col">Description</th>
             </tr>
           </thead>
           <tbody id="blogTbody"></tbody>

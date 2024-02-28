@@ -45,11 +45,13 @@ body {
   width: 100%;
   padding: 5%;
 }
+.blogText {
+  --bs-gutter-x: 0;
+}
 .header1 {
   background-color: #375e97;
 }
-.imgs {
+.images {
   height: auto;
   width: 95%;
 }
-
