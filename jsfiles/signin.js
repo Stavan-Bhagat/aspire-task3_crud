@@ -11,10 +11,10 @@ signIn.addEventListener("submit", (event) => {
   if (user) {
     if (user.role === "user") {
       console.log(user.role);
-      localStorage.setItem("name", JSON.stringify(user.name));
+      sessionStorage.setItem("name", JSON.stringify(user.name));
       window.location.href = "welcomeUser.html";
     } else {
-      localStorage.setItem("name", JSON.stringify(user.name));
+      sessionStorage.setItem("name", JSON.stringify(user.name));
       window.location.href = "welcomeAdmin.html";
     }
   } else {

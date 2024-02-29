@@ -103,7 +103,7 @@ function displayBlogs() {
           <td>${blogData[i].title}</td>
           <td>${blogData[i].description}</td>
           <td>
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateBlog" onclick="updateblog(${i})">Update</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updateBlog" onclick="updateBlog(${i})">Update</button>
           </td>
           <td>
             <button type="button" class="btn btn-danger" onclick="deleteBlog(${i})">Delete</button>
