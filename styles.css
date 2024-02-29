@@ -34,6 +34,10 @@ body {
 }
 
 /* welcome header blog */
+.addBlogButton{
+ height: 100%;
+ border: none;
+}
 .logout {
   background: none;
 }
@@ -47,6 +51,7 @@ body {
 }
 .blogText {
   --bs-gutter-x: 0;
+  width: 100%;
 }
 .header1 {
   background-color: #375e97;
