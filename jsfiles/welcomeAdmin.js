@@ -142,6 +142,7 @@ function updateBlog(index) {
   });
 }
 displayBlogs();
+
 function stopBack() {
   window.history.go(1);
 }
