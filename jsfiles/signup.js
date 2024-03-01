@@ -10,7 +10,7 @@ document.getElementById("myForm").addEventListener("submit", (e) => {
       const success = document.querySelector("#successMessage");
       const { name, email, role, city, password } = getFormValues();
       const encryptPassword = btoa(password);
-      success.style.display = "block";
+      window.location.href = "index.html";
       let user = JSON.parse(localStorage.getItem("users")) || [];
 
       const data = {
@@ -89,7 +89,8 @@ function validate() {
       "it should contain 8 characters";
     valid = false;
   } else if (password === "") {
-    document.getElementById("errorPassword").innerHTML = "it should not be empty";
+    document.getElementById("errorPassword").innerHTML =
+      "it should not be empty";
     valid = false;
   } else {
     document.getElementById("errorPassword").innerHTML = "";

@@ -34,9 +34,9 @@ body {
 }
 
 /* welcome header blog */
-.addBlogButton{
- height: 100%;
- border: none;
+.addBlogButton {
+  height: 100%;
+  border: none;
 }
 .logout {
   background: none;

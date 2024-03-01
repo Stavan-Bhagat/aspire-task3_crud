@@ -25,18 +25,15 @@
         CRUD Application using Local Storage
       </div>
     </header>
-    <div class="container p-4 d-flex align-items-center justify-content-center " style="width: 30%; height: 90vh">
+    <div
+      class="container p-4 d-flex align-items-center justify-content-center"
+      style="width: 30%; height: 90vh"
+    >
       <form
         class="row g-3 shadow-sm p-4 bg-body rounded bg-light"
         id="myForm"
         method="post"
       >
-      <h2 class="text-black m-0">
-        SIGN UP <span
-        id="successMessage"
-        style="color: green; text-shadow: 1px 1px 1px white; display: none"
-        >SUCCESSFUL</span
-      ></h2>
         <div class="col-md-12">
           <input
             type="text"
@@ -67,7 +64,7 @@
         </div>
         <div class="col-md-12">
           <select class="form-select" id="role" name="role">
-            <option  disabled selected>Select Role</option>
+            <option disabled selected>Select Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
@@ -90,19 +87,15 @@
             placeholder="confirmPassword"
           /><span class="error text-danger" id="errorConfirmPassword"></span>
         </div>
-        <div class="col-4 mt-4 fs-5 pt-2">
-          <a href="index.html" class="btn-secondary rounded-0 mt-3" id="back">
-            <i class="fa-solid fa-angles-left"></i> Back
-          </a>
-        </div>
-        <div class="col-8">
-          <button
-            type="submit"
-            class="btn btn-primary rounded-5 mt-3"
-            id="submit"
-          >
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary rounded-5" id="submit">
             Submit
           </button>
+        </div>
+        <div class="col mt-4 pt-2">
+          <a href="index.html" class="btn-secondary rounded-0 mt-3" id="back">
+            already have an account ? <span class="text-black">Sign In</span>
+          </a>
         </div>
       </form>
       <div id="response" class="text-light mt-2"></div>
