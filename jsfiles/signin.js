@@ -4,6 +4,11 @@ signIn.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const userData = JSON.parse(localStorage.getItem("users"));
+  if (userData === null) {
+    document.querySelector(
+      "#errorMessage"
+    ).textContent = `No registrations found.`;
+  }
   const user = userData.find(
     (element) => element.email === email && atob(element.password) === password
   );
